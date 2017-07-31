@@ -1,0 +1,19 @@
+Possibly add further depth to the structure, i.e. add
+Under src:
+libs/lib1
+libs/lib2
+etc.
+apps/app1
+apps/app2
+etc.
+ext/ext1
+ext/ext2
+etc.
+Also decide on doc:
+possibly add doc folder in the subfolders, i.e.:
+libs/lib1/doc
+OR:
+add doc folder paralell tod src and build with internal structure:
+doc/libs/lib1
+doc/apps/app1
+

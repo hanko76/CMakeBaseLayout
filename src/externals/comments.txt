@@ -1,0 +1,3 @@
+The externals folder is for 3rd party code that we build here. This
+is not very likely, since it would be better to have them as separate,
+pre-built dependencies.
