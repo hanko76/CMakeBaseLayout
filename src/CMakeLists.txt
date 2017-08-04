@@ -9,7 +9,11 @@ include(GNUInstallDirs)
 set(CMAKE_INSTALL_PREFIX ${PROJECT_BINARY_DIR}/installation)
 
 # Include Boost as an imported target
-set(BOOST_ROOT /opt/boost_1_64_0)
+if(WIN32) 
+  set(BOOST_ROOT C:/work/boost)
+elseif(UNIX)
+  set(BOOST_ROOT /opt/boost_1_64_0)
+endif()
 find_package(Boost REQUIRED)
 add_library(boost INTERFACE IMPORTED)
 set_property(TARGET boost PROPERTY

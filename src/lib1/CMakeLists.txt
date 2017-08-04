@@ -11,7 +11,7 @@ target_compile_features(lib1 PUBLIC cxx_std_17)
 
 include(GenerateExportHeader)
 generate_export_header(lib1)
-install(FILES ${PROJECT_BINARY_DIR}/lib1/lib1_export.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(FILES ${PROJECT_BINARY_DIR}/lib1/lib1_export.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/lib1)
 
 # Define headers for this library. PUBLIC headers are used for
 # compiling the library, and will be added to consumers' build
