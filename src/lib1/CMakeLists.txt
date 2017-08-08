@@ -5,20 +5,24 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 
 add_library(lib1
-    src/HelloWriter.cpp)
-
-target_compile_features(lib1 PUBLIC cxx_std_17)
-
+    src/HelloWriter.cpp
+	include/lib1/HelloWriter.h)
+	
 include(GenerateExportHeader)
 generate_export_header(lib1)
 install(FILES ${PROJECT_BINARY_DIR}/lib1/lib1_export.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/lib1)
+
+# Add generated sources after library has been defined
+target_sources(lib1 PRIVATE ${PROJECT_BINARY_DIR}/lib1/lib1_export.h)
+
+target_compile_features(lib1 PUBLIC cxx_std_17)
 
 # Define headers for this library. PUBLIC headers are used for
 # compiling the library, and will be added to consumers' build
 # paths.
 target_include_directories(lib1 PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/lib1>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>
     $<INSTALL_INTERFACE:include>
     PRIVATE src)
 
