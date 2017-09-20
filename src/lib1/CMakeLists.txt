@@ -4,7 +4,7 @@
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 
-add_library(lib1
+add_library(lib1 SHARED
     src/HelloWriter.cpp
 	include/lib1/HelloWriter.h)
 	
